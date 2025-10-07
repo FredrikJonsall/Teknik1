@@ -18,6 +18,6 @@ void loop() {
 
   } else {
 
-    digitalWrite(8, LOW);
+    digitalWrite(5, LOW);
   }
 }
