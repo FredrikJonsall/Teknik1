@@ -26,7 +26,7 @@ void loop() {
 
   while (forsok < 5 && harVunnit == false) {
     while (digitalRead(knapp)) {
-      gissning = map(analogRead(ratt), -10, 1023, 0, 110);
+      gissning = map(analogRead(ratt), 0, 1023, -10, 110);
       gissning = constrain(gissning, 0 , 99);
       lcd.clear();
       lcd.setCursor(0, 0);
