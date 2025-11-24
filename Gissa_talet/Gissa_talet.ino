@@ -13,7 +13,7 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  int hemligtTal = random(0, 99);  // tal mellan 0 och 100
+  int hemligtTal = random(0, 100);  // tal mellan 0 och 100
   int forsok = 0;                  // antalet gissningar som gjorts
   int gissning;
   bool harVunnit = false;
@@ -26,7 +26,8 @@ void loop() {
 
   while (forsok < 5 && harVunnit == false) {
     while (digitalRead(knapp)) {
-      gissning = map(analogRead(ratt), 0, 1023, 0, 99);
+      gissning = map(analogRead(ratt), -10, 1023, 0, 110);
+      gissning = constrain(gissning, 0 , 99);
       lcd.clear();
       lcd.setCursor(0, 0);
       lcd.print("Gissning: ");
@@ -44,10 +45,12 @@ void loop() {
       lcd.clear();
       lcd.setCursor(0, 0);
       lcd.print("Talet ar storre!");
+      delay(1000);
     } else {
       lcd.clear();
       lcd.setCursor(0, 0);
       lcd.print("Talet ar mindre!");
+      delay(1000);
     }
   }
   if (harVunnit == false) {
